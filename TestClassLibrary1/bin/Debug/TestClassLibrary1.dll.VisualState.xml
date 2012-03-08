@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
+  <TopNode>[0-1004]C:\Users\weizhe.jiao\Documents\Visual Studio 2010\Projects\WebApp7\TestClassLibrary1\bin\Debug\TestClassLibrary1.dll</TopNode>
+  <SelectedNode>[0-1003]TestClassLibrary1.GuestBookTest.TestLayout</SelectedNode>
+  <ExcludeCategories>false</ExcludeCategories>
+  <Nodes>
+    <Node UniqueName="[0-1004]C:\Users\weizhe.jiao\Documents\Visual Studio 2010\Projects\WebApp7\TestClassLibrary1\bin\Debug\TestClassLibrary1.dll" Expanded="true" />
+    <Node UniqueName="[0-1005]TestClassLibrary1" Expanded="true" />
+    <Node UniqueName="[0-1000]TestClassLibrary1.GuestBookTest" Expanded="true" />
+  </Nodes>
+</VisualState>

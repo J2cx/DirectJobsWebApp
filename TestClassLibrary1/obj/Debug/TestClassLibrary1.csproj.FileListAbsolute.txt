@@ -1,0 +1,8 @@
+C:\Users\weizhe.jiao\documents\visual studio 2010\Projects\WebApp7\TestClassLibrary1\bin\Debug\TestClassLibrary1.dll
+C:\Users\weizhe.jiao\documents\visual studio 2010\Projects\WebApp7\TestClassLibrary1\bin\Debug\TestClassLibrary1.pdb
+C:\Users\weizhe.jiao\documents\visual studio 2010\Projects\WebApp7\TestClassLibrary1\bin\Debug\nunit.framework.dll
+C:\Users\weizhe.jiao\documents\visual studio 2010\Projects\WebApp7\TestClassLibrary1\bin\Debug\NUnitAsp.dll
+C:\Users\weizhe.jiao\documents\visual studio 2010\Projects\WebApp7\TestClassLibrary1\bin\Debug\nunit.framework.xml
+C:\Users\weizhe.jiao\documents\visual studio 2010\Projects\WebApp7\TestClassLibrary1\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\weizhe.jiao\documents\visual studio 2010\Projects\WebApp7\TestClassLibrary1\obj\Debug\TestClassLibrary1.dll
+C:\Users\weizhe.jiao\documents\visual studio 2010\Projects\WebApp7\TestClassLibrary1\obj\Debug\TestClassLibrary1.pdb

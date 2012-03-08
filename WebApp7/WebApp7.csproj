@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{66D3F1C8-55FF-4477-85C2-346CCB16C0C3}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebApp7</RootNamespace>
+    <AssemblyName>WebApp7</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=3.5.40412.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Security, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql, Version=0.7.0.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Npgsql.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.5.9.10348, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL" />
+    <Reference Include="NUnitAsp">
+      <HintPath>..\..\..\..\..\Desktop\files\NunitASP\IndyTiburon\bin\NUnitAsp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Global.asax" />
+    <Content Include="Default.aspx" />
+    <Content Include="img\990x100_logo_top.png" />
+    <Content Include="img\flecheblanche.png" />
+    <Content Include="img\homepageexport.png" />
+    <Content Include="img\Used\arw_nav_bot.png" />
+    <Content Include="img\Used\arw_nav_next.png" />
+    <Content Include="img\Used\arw_nav_prev.png" />
+    <Content Include="img\Used\20x20_lectureretouroff.png" />
+    <Content Include="img\Used\arw_nav_top.png" />
+    <Content Include="img\Used\20x20_lectureretourrapide_off.png" />
+    <Content Include="img\Used\arw_dir_black_right.png" />
+    <Content Include="img\Used\couleurs.png" />
+    <Content Include="img\Used\ico_do_save.png" />
+    <Content Include="img\Used\Note1.png" />
+    <Content Include="img\Used\sts_ar.png" />
+    <Content Include="img\Used\ico_do_delete.png" />
+    <Content Include="MemberPage\AnnonceInf.aspx" />
+    <Content Include="MemberPage\AnnoncePage.aspx" />
+    <Content Include="MemberPage\ChangePasswordPage.aspx" />
+    <Content Include="MemberPage\MemberPage1.aspx" />
+    <Content Include="MemberPage\MesRappels.aspx" />
+    <Content Include="MemberPage\MesRecherches.aspx" />
+    <Content Include="MemberPage\Profile.aspx" />
+    <Content Include="MemberPage\RechercherPage.aspx" />
+    <Content Include="MembershipPages\CreateNewUserPage.aspx" />
+    <Content Include="MembershipPages\PasswordRecoveryPage.aspx" />
+    <Content Include="Scripts\html5.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\images\help.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\images\important.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\images\info.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\images\title.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\jquery-1.4.1.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\jquery-1.4.1.min.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\jquery.alerts.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\jquery.alerts.js">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="MemberPage\Annonce.cs" />
+    <Compile Include="MemberPage\AnnonceInf.aspx.cs">
+      <DependentUpon>AnnonceInf.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MemberPage\AnnonceInf.aspx.designer.cs">
+      <DependentUpon>AnnonceInf.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MemberPage\AnnoncePage.aspx.cs">
+      <DependentUpon>AnnoncePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MemberPage\AnnoncePage.aspx.designer.cs">
+      <DependentUpon>AnnoncePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MemberPage\ChangePasswordPage.aspx.cs">
+      <DependentUpon>ChangePasswordPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MemberPage\ChangePasswordPage.aspx.designer.cs">
+      <DependentUpon>ChangePasswordPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MemberPage\MemberPage1.aspx.cs">
+      <DependentUpon>MemberPage1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MemberPage\MemberPage1.aspx.designer.cs">
+      <DependentUpon>MemberPage1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MemberPage\MemberPages.Master.cs">
+      <DependentUpon>MemberPages.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MemberPage\MemberPages.Master.designer.cs">
+      <DependentUpon>MemberPages.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MemberPage\MesRappels.aspx.cs">
+      <DependentUpon>MesRappels.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MemberPage\MesRappels.aspx.designer.cs">
+      <DependentUpon>MesRappels.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MemberPage\MesRecherches.aspx.cs">
+      <DependentUpon>MesRecherches.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MemberPage\MesRecherches.aspx.designer.cs">
+      <DependentUpon>MesRecherches.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MemberPage\Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MemberPage\Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MemberPage\Rappel.cs" />
+    <Compile Include="MemberPage\RechercherPage.aspx.cs">
+      <DependentUpon>RechercherPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MemberPage\RechercherPage.aspx.designer.cs">
+      <DependentUpon>RechercherPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MembershipPages\CreateNewUserPage.aspx.cs">
+      <DependentUpon>CreateNewUserPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MembershipPages\CreateNewUserPage.aspx.designer.cs">
+      <DependentUpon>CreateNewUserPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MembershipPages\PasswordRecoveryPage.aspx.cs">
+      <DependentUpon>PasswordRecoveryPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MembershipPages\PasswordRecoveryPage.aspx.designer.cs">
+      <DependentUpon>PasswordRecoveryPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PostgresqlProvider\PostgreSqlMembershipProvider.cs" />
+    <Compile Include="PostgresqlProvider\PostgreSqlRoleProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MemberPage\MemberPages.Master" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2350</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

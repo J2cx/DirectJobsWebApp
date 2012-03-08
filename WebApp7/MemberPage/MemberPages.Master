@@ -1,0 +1,510 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MemberPages.master.cs" Inherits="WebApp7.MemberPage.MemberPages" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8"/>
+    <script src="../Scripts/jquery-1.4.1.js" type="text/javascript"></script>
+    <!-- Dependencies -->
+    <!--<script src="/path/to/jquery.js" type="text/javascript"></script>
+    <script src="/path/to/jquery.ui.draggable.js" type="text/javascript"></script>
+    -->
+    <!-- Core files -->
+    <script src="../Scripts/jquery.alerts.js" type="text/javascript"></script>
+    <link href="../Scripts/jquery.alerts.css" rel="stylesheet" type="text/css" media="screen" />
+    <script type="text/javascript">
+        function WebIniFonction() {
+            //alert("Hello ajax");
+            var xmlhttp;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {// code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    //document.getElementById("myDiv").innerHTML = 
+                    xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET", "WebIni.aspx", true);
+            xmlhttp.send();
+        }
+    function BindEvents() {
+        var i = 0;
+
+        //$(document).ready(function(){
+          //  alert("hello jquery!!!!!");
+        //});
+        $(document).ready(function () {
+            $("tr.over").mouseover(function () {
+                i += 1;
+                $("tr.over")
+            //$(this).tooltip ("mouse over x " + i);
+            })
+        });
+    }
+    //var popup = window.createPopup();
+    function ShowTooltip(tooltipshow) {
+        /*document.getElementById("td0").innerText = name;
+        document.getElementById("td1").innerText = address;
+        document.getElementById("td2").innerText = city;
+        document.getElementById("td3").innerText = state;
+        document.getElementById("td4").innerText = phone1;
+        document.getElementById("td5").innerText = fax;
+        */
+        var popup = document.getElementById("divtooltip");
+        //      var popup = document.getElementBy("divtooltip");
+        //var popup = window.createPopup();
+        if (popup != null) {
+        
+            popup.document.body.innerHTML = tooltipshow;
+            x = event.clientX + document.body.scrollLeft;
+            y = event.clientY + document.body.scrollTop + 10;
+            popup.style.display = "block";
+            popup.style.left = x;
+            popup.style.top = y;
+        } 
+       
+    }
+
+    function HideTooltip() {
+        //popup.style.display = "none";
+        var popup = document.getElementBy("divtooltip");
+        popup.style.visibility="hidden";
+    }
+
+    var x0 = 0, y0 = 0, x1 = 0, y1 = 0;
+    var offx = 6, offy = 6;
+    var moveable = false;
+    var hover = 'orange', normal = 'slategray'; //color;
+    var index = 10000; //z-index;
+    //开始拖动;
+    function startDrag(obj) {
+        if (event.button == 1) {
+            //锁定标题栏;
+            obj.setCapture();
+            //定义对象;
+            var win = obj.parentNode;
+            var sha = win.nextSibling;
+            //记录鼠标和层位置;
+            x0 = event.clientX;
+            y0 = event.clientY;
+            x1 = parseInt(win.style.left);
+            y1 = parseInt(win.style.top);
+            //记录颜色;
+            normal = obj.style.backgroundColor;
+            //改变风格;
+            obj.style.backgroundColor = hover;
+            win.style.borderColor = hover;
+            obj.nextSibling.style.color = hover;
+            sha.style.left = x1 + offx;
+            sha.style.top = y1 + offy;
+            moveable = true;
+        }
+    }
+    //拖动;
+    function drag(obj) {
+        if (moveable) {
+            var win = obj.parentNode;
+            var sha = win.nextSibling;
+            win.style.left = x1 + event.clientX - x0;
+            win.style.top = y1 + event.clientY - y0;
+            sha.style.left = parseInt(win.style.left) + offx;
+            sha.style.top = parseInt(win.style.top) + offy;
+        }
+    }
+    //停止拖动;
+    function stopDrag(obj) {
+        if (moveable) {
+            var win = obj.parentNode;
+            var sha = win.nextSibling;
+            var msg = obj.nextSibling;
+            win.style.borderColor = normal;
+            obj.style.backgroundColor = normal;
+            msg.style.color = normal;
+            sha.style.left = obj.parentNode.style.left;
+            sha.style.top = obj.parentNode.style.top;
+            obj.releaseCapture();
+            moveable = false;
+        }
+    }
+    //获得焦点;
+    function getFocus(obj) {
+        if (obj.style.zIndex != index) {
+            index = index + 2;
+            var idx = index;
+            obj.style.zIndex = idx;
+            obj.nextSibling.style.zIndex = idx - 1;
+        }
+    }
+    //最小化;
+    function min(obj) {
+        var win = obj.parentNode.parentNode;
+        var sha = win.nextSibling;
+        var tit = obj.parentNode;
+        var msg = tit.nextSibling;
+        var flg = msg.style.display == "none";
+        if (flg) {
+            win.style.height = parseInt(msg.style.height) + parseInt(tit.style.height) + 2 * 2;
+            sha.style.height = win.style.height;
+            msg.style.display = "block";
+            obj.innerHTML = "0";
+        }
+        else {
+            win.style.height = parseInt(tit.style.height) + 2 * 2;
+            sha.style.height = win.style.height;
+            obj.innerHTML = "2";
+            msg.style.display = "none";
+        }
+    }
+    //关闭;
+    function cls(obj) {
+        var win = obj.parentNode.parentNode;
+        var sha = win.nextSibling;
+        win.style.visibility = "hidden";
+        sha.style.visibility = "hidden";
+    }
+    //创建一个对象;
+    function xWin(id, w, h, l, t, tit, msg) {
+        index = index + 2;
+        this.id = id;
+        this.width = w;
+        this.height = h;
+        this.left = l;
+        this.top = t;
+        this.zIndex = index;
+        this.title = tit;
+        this.message = msg;
+        this.obj = null;
+        this.bulid = bulid;
+        this.bulid();
+    }
+    //初始化;
+    function bulid() {
+        var str = ""
+  + "<div id=xMsg" + this.id + " "
+  + "style='"
+  + "z-index:" + this.zIndex + ";"
+  + "width:" + this.width + ";"
+  + "height:" + this.height + ";"
+  + "left:" + this.left + ";"
+  + "top:" + this.top + ";"
+  + "background-color:" + normal + ";"
+  + "color:" + normal + ";"
+  + "font-size:10px;"
+  + "font-family:Verdana;"
+  + "position:absolute;"
+  + "cursor:default;"
+  + "border:2px solid " + normal + ";"
+  + "' "
+  + "onmousedown='getFocus(this)'>"
+   + "<div "
+   + "style='"
+   + "background-color:" + normal + ";"
+   + "width:" + (this.width - 2 * 2) + ";"
+   + "height:20;"
+   + "color:white;"
+   + "' "
+   + "onmousedown='startDrag(this)' "
+   + "onmouseup='stopDrag(this)' "
+   + "onmousemove='drag(this)' "
+   + "ondblclick='min(this.childNodes[1])'"
+   + ">"
+    + "<span style='width:" + (this.width - 2 * 12 - 4) + ";padding-left:3px;'>" + this.title + "</span>"
+    + "<span style='width:12;border-width:0px;color:white;font-family:webdings;' onclick='min(this)'>0</span>"
+    + "<span style='width:12;border-width:0px;color:white;font-family:webdings;' onclick='cls(this)'>r</span>"
+   + "</div>"
+    + "<div style='"
+    + "width:100%;"
+    + "height:" + (this.height - 20 - 4) + ";"
+    + "background-color:white;"
+    + "line-height:14px;"
+    + "word-break:break-all;"
+    + "padding:3px;"
+    + "'>" + this.message + "</div>"
+  + "</div>"
+  + "<div style='"
+  + "width:" + this.width + ";"
+  + "height:" + this.height + ";"
+  + "top:" + this.top + ";"
+  + "left:" + this.left + ";"
+  + "z-index:" + (this.zIndex - 1) + ";"
+  + "position:absolute;"
+  + "background-color:black;"
+  + "filter:alpha(opacity=40);"
+  + "'>by wildwind</div>";
+        document.body.insertAdjacentHTML("beforeEnd", str);
+    }
+    function initialize() {
+        var a = new xWin("1", 100, 200, 0, 0, "arui1", "test1");
+        var b = new xWin("2", 100, 200, 0, 200, "arui2", "test2");
+        //var c = new xWin("3",200,160,250,50,"arui3","test3");
+    }
+
+    function getPixelsFromTop(ident) {
+        obj = $(ident);
+
+        var pxs = obj.offsetTop;
+        while (obj.offsetParent != null) {
+            obj = obj.offsetParent;
+            pxs += obj.offsetTop;
+        }
+
+        return pxs;
+    }
+    function getPixelsFromLeft(ident) {
+        obj = $(ident);
+
+        var pxs = obj.offsetLeft;
+        while (obj.offsetParent != null) {
+            obj = obj.offsetParent;
+            pxs += obj.offsetLeft;
+        }
+
+        return pxs;
+    }
+
+
+    function legendes() {
+        var viewHeight = ie ? document.documentElement.scrollTop : window.pageYOffset;
+        var viewWidth = ie ? document.documentElement.scrollLeft : window.pageXOffset;
+
+        var pageHeight = ie ? document.documentElement.clientHeight : window.innerHeight;
+        //var pageWidth = ie ? document.documentElement.clientWidth : window.innerWidth ;
+
+        var contentWidth = 995;
+        var divHeight = 430;
+        var limitTop = getPixelsFromTop("legendes_spacer");
+
+        var oLegendeS = $S("legendes");
+
+        var top = viewHeight + (pageHeight - divHeight);
+        var left = oLegendeS.left;
+
+        top = (limitTop > top) ? limitTop : top;
+        left = getPixelsFromLeft("legendes");
+        if (ie == 7)
+            left = Math.round((viewWidth - contentWidth) / 8 * 6.65) + 1;
+
+        //var bot = getPixelsFromTop("footer");
+        //bot -= 400;
+        //if (top > bot) top = bot;
+
+        top = top + "px";
+        left = left + "px";
+
+        oLegendeS.top = top;
+        oLegendeS.left = left;
+
+        oLegendeS.display = "block";
+
+        setTimeout("legendes()", 100);
+    }
+
+    function bodyLoad() {
+        try {
+            //allways on
+            legendes();
+            //go top
+            self.scrollTo(0, 0);
+        } catch (e) { }
+    }
+
+</script>
+
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        body
+        {
+            font-family:Arial; 
+            font-size:13px;   
+        }
+        div
+        {
+            margin:0;
+        }
+        tbody
+        {
+            margin:0;
+        }
+        .panelGrobal
+        {
+            width:990px;
+            margin:auto;
+        }
+        
+        .style1
+        {
+            width: 250px;
+            height: 95px;
+            text-align:left;
+            vertical-align:top;
+        }
+        .style2
+        {
+            height: 95px;
+        }
+
+        .toolTip
+        { 
+        font-family: Verdana, Arial, Sans-serif, 'Times New Roman';
+         font-size: 8pt; 
+         /*filter:alpha(opacity=80);
+          -moz-opacity: 0.8; 
+          opacity: 0.8;
+           /* comment the above 3 lines if you don't want transparency*/
+        } 
+        
+        .lu
+        {
+            color:Purple;
+            }
+            
+        .divMenuTitle
+        {
+            /*background-image:url('../IMG/bgr_wide_yellow.png');
+            color:White;                                */
+            }
+
+        .style4
+        {
+            /*
+            width: 241px;
+            */
+        }
+        td.style3 a
+        {
+            text-decoration:none;
+            color:Black;
+            position:relative;
+            left:5px;
+        }
+        td.style3
+        {
+            width:178px;
+            height:26px;
+        }
+        
+        td.style3:hover
+        {
+            background-color:#6EB9D3;
+        }
+        td.style3 a:hover
+        {
+            color:White;
+        }
+        td.style3 img
+        {
+            position:relative;
+            left:50px;
+            visibility:hidden;
+        }
+    </style>
+</head>
+<body style="margin:0px" onload="bodyLoad()">
+    <form id="form1" runat="server" >
+    
+        <asp:Panel ID="Panel1" class="panelGrobal" runat="server" Height="90px" 
+        BackImageUrl="~/img/990x100_logo_top.png" HorizontalAlign="Right">
+            <asp:LoginName ID="LoginName1" runat="server" ForeColor="White" />
+            <asp:LoginStatus ID="LoginStatus1" runat="server" 
+                LogoutAction="RedirectToLoginPage" ForeColor="White" 
+                style="background-color:#6EB9D3;margin-right:10px;margin-top:5px;margin-left:10px;text-align:center;text-decoration:none;line-height:200%;" 
+                Height="25px" Width="120px" LogoutText="Me Déconnecter" />
+        </asp:Panel>
+        <asp:Panel ID="PanelAnnonces" runat="server" class="panelGrobal" Height="26px" BackColor="#FFB909">
+            <asp:Label runat="server" Text="Annonces" style="color:White;position:relative;left:20px;top:6px;"/>
+        </asp:Panel>
+        <div id="divPage" style="margin:0 auto;width:990px;">
+            <div id="divLeft" style="position:relative;left:0;top:0;float:left;width=178px;">
+            <asp:Panel ID="Panel3" runat="server" Height="136px" Width="178px">
+                <div id="divMenuTitle" class="divMenuTitle" style="background-color:#6EB9D3;height:26px;">
+                   <img src="../img/flecheblanche.png" style="position:relative;left:20px;top:6px;" />
+                   <asp:Label ID="LabelMnenuTitle" runat="server" Text=" Menus Verticaux" style="color:White;position:relative;left:25px;top:6px;"/>
+                </div>
+                <table>
+                    <tr class="trMenu">
+                        <td class="style3">
+                            <img src="../img/flecheblanche.png" />
+                            <asp:LinkButton ID="LinkButtonAnnonces" runat="server" 
+                                onclick="LinkButtonAnnonces_Click">Annonces du jour</asp:LinkButton>
+                        </td>
+                    </tr>
+                    <tr class="trMenu">
+                        <td class="style3">
+                        <img src="../img/flecheblanche.png" />
+                    <asp:HyperLink ID="HyperLink1" runat="server" 
+                        NavigateUrl="~/MemberPage/RechercherPage.aspx">Rechercher</asp:HyperLink>
+                        </td>
+                    </tr>
+                    <tr class="trMenu">
+                        <td class="style3">
+                        <img src="../img/flecheblanche.png" />
+                    <asp:HyperLink ID="HyperLink2" runat="server" 
+                        NavigateUrl="~/MemberPage/MesRecherches.aspx">Mes Recherches</asp:HyperLink>
+                        </td>
+                    </tr>
+                    <tr class="trMenu">
+                        <td class="style3">
+                        <img src="../img/flecheblanche.png" />
+                    <asp:HyperLink ID="HyperLink4" runat="server" 
+                        NavigateUrl="~/MemberPage/MesRappels.aspx">Rappels</asp:HyperLink>
+                        </td>
+                    </tr>
+                    <tr class="trMenu">
+                        <td class="style3">
+                        <img src="../img/flecheblanche.png" />
+                    <asp:HyperLink ID="HyperLink3" runat="server" 
+                        NavigateUrl="~/MemberPage/Profile.aspx">Profile</asp:HyperLink>
+                        </td>
+                    </tr>
+                </table>
+            </asp:Panel>
+            <asp:Panel runat="server" id="legendes" Width="178px" style="position:relative;top:0;left:0;">
+            <div id="divLegendaTitle" class="divMenuTitle">
+                Légenda
+            </div>
+            <table id="tableLegenda">
+                <tr>
+                    <td class="style4">
+                        <img src="../IMG/Used/Note1.png" />: Notes</td>
+                </tr>
+                <tr>
+                    <td class="style4">
+                        <img src="../IMG/Used/ico_do_save.png" />: Conserver
+                    </td>
+                </tr>
+                <tr>
+                    <td class="style4">
+                        <img src="../IMG/Used/ico_do_delete.png" />: Supprimmer
+                    </td>
+                </tr>
+                <tr>
+                    <td class="style4">
+                        <img src="../IMG/Used/sts_ar.png" />: A Rappeler
+                    </td>
+                </tr>
+            </table>
+    </asp:Panel>
+            </div>
+            <asp:Panel ID="panelTable" runat="server" style="margin: 0 auto; width: 802px; background-color:White;float:right;">
+            <table>
+                <tr>
+                    <td class="style2">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </td>
+                </tr>
+            </table>
+        </asp:Panel>
+        </div>
+
+
+    </form>
+</body>
+</html>
